@@ -19,14 +19,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 button.innerText = "Saved";
             });
         });
+
+        // govnoi vonyaet
+        chrome.storage.sync.get(["token", "chat_id"], function (data) {
+            if (data.token) {
+                token.value = data.token;
+            }
+            if (data.chat_id) {
+                chat_id.value = data.chat_id;
+            }
+        });
     }
-    // govnoi vonyaet
-    chrome.storage.sync.get(["token", "chat_id"], function (data) {
-        if (data.token) {
-            token.value = data.token;
-        }
-        if (data.chat_id) {
-            chat_id.value = data.chat_id;
-        }
-    });
 });
